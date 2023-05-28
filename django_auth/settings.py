@@ -9,6 +9,10 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
+# CLOUDNIARY SETUP
+import cloudinary
+from cloudinary.utils import cloudinary_url
+from cloudinary.uploader import upload
 
 from pathlib import Path
 
@@ -40,6 +44,7 @@ INSTALLED_APPS = [
 
     # My applications
     'clients',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +129,16 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Cloudinary config
+cloudinary.config(
+    cloud_name="dhkvaflx7",
+    api_key="521446458132334",
+    api_secret="2llxUuW2XYe3NGnKHv7XMPuGu14",
+    secure=True
+)
+
+# Transform
+url, options = cloudinary_url(
+    "", width=100, height=150, crop="fill")

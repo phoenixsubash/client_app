@@ -1,4 +1,7 @@
+from typing import Iterable
 from django.db import models
+from cloudinary.models import CloudinaryField
+from cloudinary.uploader import upload
 
 
 class Client(models.Model):
@@ -15,7 +18,7 @@ class Client(models.Model):
     ]
 
     name = models.CharField(max_length=100)
-    profile_image = models.ImageField(upload_to='profile_images/')
+    profile_image = CloudinaryField('image')
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
     phone = models.CharField(max_length=20)
     email = models.EmailField()
