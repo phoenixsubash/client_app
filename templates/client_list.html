@@ -1,0 +1,21 @@
+<!-- client_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Client List</title>
+</head>
+<body>
+    <h1>Client List</h1>
+    <form method="GET" action="{% url 'client_list' %}">
+        <input type="text" name="q" placeholder="Search">
+        <button type="submit">Search</button>
+    </form>
+    <ul>
+        {% for client in clients %}
+            <li>{{ client.name }}</li>
+        {% empty %}
+            <li>No clients found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
