@@ -18,7 +18,7 @@ class Client(models.Model):
     ]
 
     name = models.CharField(max_length=100)
-    profile_image = CloudinaryField('image')
+    profile_image = CloudinaryField('image', folder="Profile_image")
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
     phone = models.CharField(max_length=20)
     email = models.EmailField()

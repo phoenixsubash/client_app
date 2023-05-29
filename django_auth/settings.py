@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     # My applications
     'clients',
     'cloudinary',
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [
