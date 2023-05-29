@@ -1,19 +1,19 @@
 # Project Name
 
-Client Management System
+Client app
 
 ## Description
 
-The Client Management System is a web application built using Django framework. It provides functionality to manage client information, including their personal details, education background, and preferred mode of contact. The system allows users to create new clients, view a list of all clients, and search for specific clients.
+The Client app is a web application built using Django framework. It provides functionality to manage client information, including their personal details, education background, and preferred mode of contact. The system allows users to create new clients, view a list of all clients, and search for specific clients.
 
 ## Installation
 
-To run the Client Management System locally, follow these steps:
+To run the Client app locally, follow these steps:
 
 1. Clone the repository:
 
    ```
-   git clone <repository_url>
+   git clone <[repository_url>](https://github.com/phoenixsubash/client_app.git)
    ```
 
 2. Navigate to the project directory:
@@ -109,4 +109,4 @@ The Client Management System includes the following additional features:
 
 ## Conclusion
 
-The Client Management System provides a user-friendly interface to manage client information effectively.
+The Client app  provides a user-friendly interface to manage client information effectively.
