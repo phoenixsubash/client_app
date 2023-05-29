@@ -1,21 +1,64 @@
 <!-- client_list.html -->
+{% load bootstrap5 %}
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Client List</title>
+    {% bootstrap_css %}
 </head>
 <body>
-    <h1>Client List</h1>
-    <form method="GET" action="{% url 'client_list' %}">
-        <input type="text" name="q" placeholder="Search">
-        <button type="submit">Search</button>
-    </form>
-    <ul>
-        {% for client in clients %}
-            <li>{{ client.name }}</li>
-        {% empty %}
-            <li>No clients found.</li>
-        {% endfor %}
-    </ul>
+    <div class="container">
+        <h1>Client List</h1>
+        <form method="GET" action="{% url 'client_list' %}" class="mb-3">
+            <div class="input-group">
+                <input type="text" name="query" class="form-control" placeholder="Search">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </form>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>S.N</th>
+                    <th>Name</th>
+                    <th>Profile Image</th>
+                    <th>Gender</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Nationality</th>
+                    <th>Date of Birth</th>
+                    <th>Education Background</th>
+                    <th>Preferred Mode of Contact</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for client in clients %}
+                    <tr>
+                        <td>{{client.id}}</td>
+                        <td>{{ client.name }}</td>
+                        <td>
+                            {% if client.profile_image %}
+                                <img src="{{ client.profile_image.url }}" alt="Profile Image" width="100">
+                            {% else %}
+                                No Image
+                            {% endif %}
+                        </td>
+                        <td>{{ client.gender }}</td>
+                        <td>{{ client.phone }}</td>
+                        <td>{{ client.email }}</td>
+                        <td>{{ client.nationality }}</td>
+                        <td>{{ client.date_of_birth }}</td>
+                        <td>{{ client.education_background }}</td>
+                        <td>{{ client.get_preferred_mode_of_contact_display }}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="9">No clients found.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% bootstrap_javascript %}
 </body>
 </html>

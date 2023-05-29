@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 # CLOUDNIARY SETUP
 import cloudinary
 from cloudinary.utils import cloudinary_url
-from cloudinary.uploader import upload
 
 from pathlib import Path
 
