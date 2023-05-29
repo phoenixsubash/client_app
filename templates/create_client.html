@@ -1,15 +1,29 @@
-<!-- create_client.html -->
+<!-- Load bootstrap  -->
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Create Client</title>
 </head>
 <body>
-    <h1>Create Client</h1>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Submit</button>
-    </form>
-</body>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-8">
+          <h1 class="mt-2">Create Client</h1>
+          <hr class="mt-0 mb-4">
+          <form method="post" class="needs-validation" enctype="multipart/form-data" novalidate>
+            {% csrf_token %}
+          {% bootstrap_form form %}
+            {% buttons%}
+            <button type="submit" class="btn btn-success">Save</button>
+            {% endbuttons%}
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
