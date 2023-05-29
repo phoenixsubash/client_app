@@ -1,7 +1,7 @@
 from django import forms
 from .models import Client
-# from cloudinary.forms import CloudinaryFileField
 from .bootstrap_forms import BootstrapFileField
+from django.contrib.auth.models import User
 
 
 class ClientForm(forms.ModelForm):
@@ -9,3 +9,9 @@ class ClientForm(forms.ModelForm):
         model = Client
         profile_image = BootstrapFileField()
         fields = '__all__'
+
+
+class LoginForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['username', 'password']
